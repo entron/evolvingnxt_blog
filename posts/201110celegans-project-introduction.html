@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://entron.github.io/evolvingnxt_blog/posts/201110celegans-project-introduction.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>celegans project introduction | Evolving NXT</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://entron.github.io/evolvingnxt_blog/posts/201110celegans-project-introduction.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Cheng Guo">
+<link rel="prev" href="201110system-check-example.html" title="NXTCamel example" type="text/html">
+<meta property="og:site_name" content="Evolving NXT">
+<meta property="og:title" content="celegans project introduction">
+<meta property="og:url" content="https://entron.github.io/evolvingnxt_blog/posts/201110celegans-project-introduction.html">
+<meta property="og:description" content="In the previous euglena project, I programmed some simple searching algorithm for the NXT robot to find light. With the celegans project I will go a biotic approach, more specifically I will design a ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2011-10-21T14:28:00Z">
+<meta property="article:tag" content="celegans">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://entron.github.io/evolvingnxt_blog/">
+
+                <span id="blog-title">Evolving NXT</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../archive.html">Archives</a>
+                </li>
+<li>
+<a href="../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="201110celegans-project-introduction.src.html" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">celegans project introduction</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                    Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2011-10-21T14:28:00Z" itemprop="datePublished" title="2011-10-21 14:28">2011-10-21 14:28</time></a></p>
+                <p class="commentline">
+        
+    <a href="201110celegans-project-introduction.html#disqus_thread" data-disqus-identifier="cache/posts/201110celegans-project-introduction.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="201110celegans-project-introduction.src.html" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>In the previous euglena project, I programmed some simple searching algorithm for the NXT robot to find light. With the celegans project I will go a biotic approach, more specifically I will design a neuron network to control the robot to achieve the same aim (find light) as euglena instead of programming by myself. Here programming I mean the traditional "if...then..." style programming. To design a neural network to realize certain task, generally speaking, is also programming, but I would rather call this kind programming "neuroprogramming". Neuroprogramming is different with conventional programming. It is fundamentally parallel, thus needs a very different programming paradigm. celegans could be a good model to try. The name is from "c. elegans", which is a tiny worm only 1mm long, and it is the simplest intensively-studied model organism with neural system.<br><br>I will use 1 light sensor to detect light and two motors for the movement. Therefore at least 3 neurons are needed: 1 sensor neuron, 2 motor neurons. Are three neurons enough? I guess probably not for an efficient light finder. To find the light source the robot should know the change of light intensity. It might be necessary to include more interneurons for this function.<br><br>During the past few months I have read quite a few papers in neural science to gain some inspiration from the real neural systems. Some of which are about c. elegans. Even though I expected for c. elegans to survive it should do something similar like finding the light I was still a bit surprised to read that the neural network the real c. elegans used could be directly applied on my NXT robot! The only difference is c.~elegans is more interested chemicals rather than light, so light intensity is replaced by chemical concentration for c. elegans. Other than this everything is almost the same. I found the following facts about c. elegans' chemotaxis:<br></p>
+<ul>
+<li>It only uses 1 sensor neuron.</li>
+<li>Effectively it uses 2  motor neuros to control the left and right side of the muscles.</li>
+</ul>
+<div>Neurocircuits it might be using has been proposed, for example <a href="http://edizquierdo.wordpress.com/2010/08/05/evolution-and-analysis-of-minimal-neural-circuits-for-klinotaxis-in-c-elegans/">Eduardo Izquierdo used a genetical algorithm to find some working minimal neural networks</a> (<span style="font-family: MyriadMM; font-size: 8pt;">The Journal of Neuroscience, September 29, 2010 </span><span style="font-family: MyriadMM; font-size: 7pt;">• </span><span style="font-family: MyriadMM; font-size: 8pt;">30(39):12908 –12917</span>); I especially like <a href="http://www.csi.uoregon.edu/projects/celegans/talks/nips1996poster.html">the work by T. C. Ferree et al</a>. Indeed ten years ago, they have done exactly the same thing I want to do now: use the neural network to control the robot to find light! Here is their paper "<a href="http://chinook.uoregon.edu/papers/ab1998.pdf">Robust spatial navigation in a robot inspired by chemotaxis in c. elegans</a>". Therefore as the first step I will simply repeat their work based on NXTCamel. The photo below is their modeling of the car from the paper. NXTCamel is designed to have a equivalent  driving system as their model.<br><br><br>
+</div>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-uSCxIKA96co/TqF1YqDOWJI/AAAAAAAAAB0/kb4yfNL8bYI/s1600/Screen+Shot+2011-10-21+at+3.34.00+PM.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://4.bp.blogspot.com/-uSCxIKA96co/TqF1YqDOWJI/AAAAAAAAAB0/kb4yfNL8bYI/s320/Screen+Shot+2011-10-21+at+3.34.00+PM.png" width="280"></a></div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/celegans.html" rel="tag">celegans</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="201110system-check-example.html" rel="prev" title="NXTCamel example">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="evolvingnxt",
+            disqus_url="https://entron.github.io/evolvingnxt_blog/posts/201110celegans-project-introduction.html",
+        disqus_title="celegans project introduction",
+        disqus_identifier="cache/posts/201110celegans-project-introduction.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="evolvingnxt";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:">Cheng Guo</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

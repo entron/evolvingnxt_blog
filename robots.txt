@@ -1,0 +1,4 @@
+Sitemap: https://entron.github.io/evolvingnxt_blog/sitemapindex.xml
+
+User-Agent: *
+Host: entron.github.io

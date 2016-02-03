@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://entron.github.io/evolvingnxt_blog/index.html">
+<meta name="description" content="The notebook of my Lego Mindstorms NXT projects.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evolving NXT</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="https://entron.github.io/evolvingnxt_blog/index.html">
+<link rel="next" href="index-1.html" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/201110celegans-project-introduction.html" type="text/html">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://entron.github.io/evolvingnxt_blog/">
+
+                <span id="blog-title">Evolving NXT</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="archive.html">Archives</a>
+                </li>
+<li>
+<a href="categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+
+<div class="postindex">
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/201110celegans-project-introduction.html" class="u-url">celegans project introduction</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="posts/201110celegans-project-introduction.html" rel="bookmark"><time class="published dt-published" datetime="2011-10-21T14:28:00Z" title="2011-10-21 14:28">2011-10-21 14:28</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/201110celegans-project-introduction.html#disqus_thread" data-disqus-identifier="cache/posts/201110celegans-project-introduction.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>In the previous euglena project, I programmed some simple searching algorithm for the NXT robot to find light. With the celegans project I will go a biotic approach, more specifically I will design a neuron network to control the robot to achieve the same aim (find light) as euglena instead of programming by myself. Here programming I mean the traditional "if...then..." style programming. To design a neural network to realize certain task, generally speaking, is also programming, but I would rather call this kind programming "neuroprogramming". Neuroprogramming is different with conventional programming. It is fundamentally parallel, thus needs a very different programming paradigm. celegans could be a good model to try. The name is from "c. elegans", which is a tiny worm only 1mm long, and it is the simplest intensively-studied model organism with neural system.<br><br>I will use 1 light sensor to detect light and two motors for the movement. Therefore at least 3 neurons are needed: 1 sensor neuron, 2 motor neurons. Are three neurons enough? I guess probably not for an efficient light finder. To find the light source the robot should know the change of light intensity. It might be necessary to include more interneurons for this function.<br><br>During the past few months I have read quite a few papers in neural science to gain some inspiration from the real neural systems. Some of which are about c. elegans. Even though I expected for c. elegans to survive it should do something similar like finding the light I was still a bit surprised to read that the neural network the real c. elegans used could be directly applied on my NXT robot! The only difference is c.~elegans is more interested chemicals rather than light, so light intensity is replaced by chemical concentration for c. elegans. Other than this everything is almost the same. I found the following facts about c. elegans' chemotaxis:<br></p>
+<ul>
+<li>It only uses 1 sensor neuron.</li>
+<li>Effectively it uses 2  motor neuros to control the left and right side of the muscles.</li>
+</ul>
+<div>Neurocircuits it might be using has been proposed, for example <a href="http://edizquierdo.wordpress.com/2010/08/05/evolution-and-analysis-of-minimal-neural-circuits-for-klinotaxis-in-c-elegans/">Eduardo Izquierdo used a genetical algorithm to find some working minimal neural networks</a> (<span style="font-family: MyriadMM; font-size: 8pt;">The Journal of Neuroscience, September 29, 2010 </span><span style="font-family: MyriadMM; font-size: 7pt;">• </span><span style="font-family: MyriadMM; font-size: 8pt;">30(39):12908 –12917</span>); I especially like <a href="http://www.csi.uoregon.edu/projects/celegans/talks/nips1996poster.html">the work by T. C. Ferree et al</a>. Indeed ten years ago, they have done exactly the same thing I want to do now: use the neural network to control the robot to find light! Here is their paper "<a href="http://chinook.uoregon.edu/papers/ab1998.pdf">Robust spatial navigation in a robot inspired by chemotaxis in c. elegans</a>". Therefore as the first step I will simply repeat their work based on NXTCamel. The photo below is their modeling of the car from the paper. NXTCamel is designed to have a equivalent  driving system as their model.<br><br><br>
+</div>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-uSCxIKA96co/TqF1YqDOWJI/AAAAAAAAAB0/kb4yfNL8bYI/s1600/Screen+Shot+2011-10-21+at+3.34.00+PM.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="http://4.bp.blogspot.com/-uSCxIKA96co/TqF1YqDOWJI/AAAAAAAAAB0/kb4yfNL8bYI/s320/Screen+Shot+2011-10-21+at+3.34.00+PM.png" width="280"></a></div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/201110system-check-example.html" class="u-url">NXTCamel example</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="posts/201110system-check-example.html" rel="bookmark"><time class="published dt-published" datetime="2011-10-21T00:50:00Z" title="2011-10-21 00:50">2011-10-21 00:50</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/201110system-check-example.html#disqus_thread" data-disqus-identifier="cache/posts/201110system-check-example.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>I wrote a matlab function checksystem.m to check whether all motors and sensors are working on <a href="http://evolvingnxt.blogspot.com/2011/09/nxtcamel.html">NXTCamel</a> as I expected (I didn't test the sound and touch sensor in the first version of the function). The program can be downloaded <a href="http://code.google.com/p/evolvingnxt/source/browse/nxtcamel/checksystem.m">here</a>. Before you running this program you should make sure:<br></p>
+<ol>
+<li>The RWTH Mindstorms NXT Toolbox for matlab is installed correctly and you could connect to NXT within matlab using bluetooth without any error.</li>
+<li>All sensors and motors are connected to the same ports as in the <a href="http://code.google.com/p/evolvingnxt/downloads/detail?name=nxtcamel_building_instruction.tar.gz&amp;can=2&amp;q=">building instruction</a>. </li>
+<li>The ultrasonic sensor is facing to the right. I define this as the default starting position.</li>
+<li>You have enough space (at least 2 by 2 meter) for NXTCamel to run.</li>
+</ol>If everything works fine, the output in Matlab should look like the following:<br><br><div style="background-color: #f9cb9c;"><span style="font-size: x-small;"><span style="font-family: Arial,Helvetica,sans-serif;">&gt;&gt; checksystem</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">Make sure the ultrasonic sensor faces to the right side before you start.</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">========Now test driving system========</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">Drive forward for 3 second. Press any key to start...</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">Drive backward for 3 second. Press any key to start...</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">Turn left. Press any key to start...</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">Turn right. Press any key to start...</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">Back and turn. Press any key to start...</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">Back and turn to the other direction. Press any key to start...</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">========Driving system test finished========</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">========Now test the sonar system========</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">Sweep sonar and measure the distance. Press any key to start...</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">========Sonar test finished========</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">Light intensity is 42.3%</span><br style="font-family: Arial,Helvetica,sans-serif;"><span style="font-family: Arial,Helvetica,sans-serif;">========All test finished========</span></span></div>
+<br><div style="font-family: inherit;"><span style="font-size: small;">It will also plot the distance measured by the ultrasonic sensor in a polar plot like this:</span></div>
+<div style="font-family: inherit;">
+<span style="font-size: small;"><br></span> </div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-vxIWNaXuKgE/TqCwo5IDjXI/AAAAAAAAABs/aA1dIPCUZo0/s1600/distance.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-vxIWNaXuKgE/TqCwo5IDjXI/AAAAAAAAABs/aA1dIPCUZo0/s1600/distance.png"></a> </div>
+<div style="font-family: inherit;">
+<br><span style="font-size: small;">Note that the NXTCamel by definition is always facing the 90 degree (12 o'clock) direction. The number 100, 200, 300 in the plot is the distance in centimeter. I measured 10 points here. One could in principle sample more points and get a better representation of the surrounding environment though it will be slower.  </span>
+</div>
+<div style="font-family: inherit;">
+<span style="font-size: small;"><br></span> </div>
+<div style="font-family: inherit;">
+<span style="font-size: small;">This distance information is naive compared with <a href="http://spectrum.ieee.org/automaton/robotics/artificial-intelligence/how-google-self-driving-car-works">those from Google car</a></span>.<span style="font-size: small;"> Nevertheless it is enough to let NXTCamel drive without hitting obstacles. </span><br><br><span style="font-size: small;">Update: </span><br><span style="font-size: small;"><a href="http://code.google.com/p/evolvingnxt/source/browse/nxtcamel/drivenxtcamel.m">Here is an example</a> with a simple algorithm, and I am sure there is still lot of space for improvement. Please let me know if you get a better way.</span> </div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/201109nxtcamel.html" class="u-url">NXTCamel</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="posts/201109nxtcamel.html" rel="bookmark"><time class="published dt-published" datetime="2011-09-30T21:58:00Z" title="2011-09-30 21:58">2011-09-30 21:58</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/201109nxtcamel.html#disqus_thread" data-disqus-identifier="cache/posts/201109nxtcamel.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>I spent almost a whole weekend to design and build this platform for my next project "c.elegans" and maybe other future projects. I named it as "NXTCamel" cause it looks bit like a camel with four long legs, and it can carry a lot!<br><br></p>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-6ff_5YLSEPU/ToYoUyHSsHI/AAAAAAAAABQ/ucHU0vjALPo/s1600/2.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="238" src="http://3.bp.blogspot.com/-6ff_5YLSEPU/ToYoUyHSsHI/AAAAAAAAABQ/ucHU0vjALPo/s320/2.jpg" width="320"></a></div>
+<br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-oS_6Iy3exhQ/ToYoV1DaTcI/AAAAAAAAABU/kU8zgtAs2i4/s1600/3.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="239" src="http://2.bp.blogspot.com/-oS_6Iy3exhQ/ToYoV1DaTcI/AAAAAAAAABU/kU8zgtAs2i4/s320/3.jpg" width="320"></a></div>
+<br><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-wB-4NDmplFA/ToYoWzd5xUI/AAAAAAAAABY/gA6mlwrvx-o/s1600/Step65.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="240" src="http://1.bp.blogspot.com/-wB-4NDmplFA/ToYoWzd5xUI/AAAAAAAAABY/gA6mlwrvx-o/s320/Step65.png" width="320"></a></div>
+<br><br>The building instructions can be downloaded <a href="http://code.google.com/p/evolvingnxt/downloads/detail?name=nxtcamel_building_instruction.tar.gz&amp;can=2&amp;q=">here</a>. Some features of NXTCamel are:<br><ul>
+<li>All sensors are mounted and all motors are used. (Lego Mindstorms NXT 1.0)</li>
+<li>It is like a car, two back wheels for driving, and two front wheels for controlling the direction.</li>
+<li>All signal lines can be tightly attached to the body so they won't stuck to somewhere easily while moving around.</li>
+<li>Ultrasonic sensor can rotate 360 degrees controlled by one motor to measure distance from any angle.</li>
+<li>The body is flat, spacious and stable. I could easily mount for example a webcam or smart phone on it for more sophisticated projects. </li>
+<li>It consists altogether 187 pieces.   </li>
+</ul>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/201109connect-from-linux.html" class="u-url">Connect from linux</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="posts/201109connect-from-linux.html" rel="bookmark"><time class="published dt-published" datetime="2011-09-30T21:25:00Z" title="2011-09-30 21:25">2011-09-30 21:25</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/201109connect-from-linux.html#disqus_thread" data-disqus-identifier="cache/posts/201109connect-from-linux.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>Bought a very cheap Asus X54L laptop two weeks ago. I installed Ubuntu 11.04 on it. Cause there is no bluetooth adapter on the laptop I bought <a href="http://www.amazon.de/LogiLink-Bluetooth-USB-Adapter-Class2-V2-0/dp/B0019D1LSW/ref=sr_1_4?ie=UTF8&amp;qid=1317413780&amp;sr=8-4">LogiLink Bluetooth USB-Adapter Class2 EDR V2.0</a> on Amazon.de. It only costs about 3 Euros and works well with Lego NXT.<br><br>I basically followed <a href="http://www.mindstorms.rwth-aachen.de/trac/wiki/Download4.04">RWTH Mindstorms NXT toolbox instructions</a> to successfully connect to Lego NXT without much difficulty. The only problem is for some unknown reason I need to connect twice with btconnect command provided by the toolbox to let Matlab recognize NXT.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/201104random-light-finder-matlab-version.html" class="u-url">Random Light Finder (Matlab version)</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="posts/201104random-light-finder-matlab-version.html" rel="bookmark"><time class="published dt-published" datetime="2011-04-23T18:24:00Z" title="2011-04-23 18:24">2011-04-23 18:24</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/201104random-light-finder-matlab-version.html#disqus_thread" data-disqus-identifier="cache/posts/201104random-light-finder-matlab-version.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>Today I found some time to play with the Lego NXT, and I wrote the matlab version of the <a href="http://evolvingnxt.blogspot.com/2010/10/random-walker-v3.html" target="_blank">random light finder</a>. The matlab program is shown below. It works quite well. With matlab I can now easily implement more sophisticated algorithm.<br><br>The robot can now effectively avoid obstacles, and I don't need to help it get out of somewhere from time to time. The program can also plot the light sensor data while the robot moves around. It is very slow to find the light because it's a random walker just like the Euglena.<br><br>The code is <a href="http://code.google.com/p/evolvingnxt/source/browse/euglena/random.m">here</a>.<br><br>Most of the code are straight forward, there is only one line I need to put some more words.<br><br><em>abs(lightdata(step)-lightdata(step-1))&lt;5 </em>means the light intensity almost unchanged compare to the last step. This could because the Robot get stuck somewhere and can't move forward. It also could because it goes to a dark regime where the light is always very low therefore hardly changes. The robot should avoid both the situations, so I let the robot go backwards a little bit in these two cases.<br><br><em><br></em></p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/201012finally-i-can-use-matlab-to-control.html" class="u-url">Finally I can use matlab to control Lego NXT on my macbook</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="posts/201012finally-i-can-use-matlab-to-control.html" rel="bookmark"><time class="published dt-published" datetime="2010-12-22T23:48:00Z" title="2010-12-22 23:48">2010-12-22 23:48</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/201012finally-i-can-use-matlab-to-control.html#disqus_thread" data-disqus-identifier="cache/posts/201012finally-i-can-use-matlab-to-control.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>I got a license for matlab on my Macbook pro and I test to control nxt with <a href="http://www.mindstorms.rwth-aachen.de/trac/wiki/Download" target="_blank">RWTH Aachen MINDSTORMS NXT Toolbox</a>. With bluetooth it works very well though I haven't succeed to use USB.  Anyway, bluetooth is all I need, so that's alright for me. One thing I should note is that in the installation instruction( http://www.mindstorms.rwth-aachen.de/trac/wiki/Download4.04 ) there is a small mistake: only after you execute<br></p>
+<blockquote><tt>COM_OpenNXT('bluetooth.ini')</tt></blockquote>
+<br>you get the sign on NXT change from <strong>B&lt;</strong> to <strong>B&lt; &gt;</strong><br><br>I will experiment with the power of Matlab from now on!
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/201011automatic-design-of-lego-nxt-robots.html" class="u-url">Automatic design of Lego NXT robots</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="posts/201011automatic-design-of-lego-nxt-robots.html" rel="bookmark"><time class="published dt-published" datetime="2010-11-20T21:41:00Z" title="2010-11-20 21:41">2010-11-20 21:41</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/201011automatic-design-of-lego-nxt-robots.html#disqus_thread" data-disqus-identifier="cache/posts/201011automatic-design-of-lego-nxt-robots.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>Building Lego NXT according to your imagination is lots of fun, but to figure out some really cool stuff is not easy. I was wondering whether there are some ways to automatically design Lego robots (in this blog entry I only concern about hardware) like those windows screen saver generating random forms of artificial life. After some research I found no one has done it yet. However, there are already lots of resources which maybe already enough for a group of very talented people to figure out how to design a Lego robot automatically. I will summarize what I have found in the following.<br><br></p>
+<h3>        Background</h3>I think the most promising way to automatically design a Lego robots is to follow the nature, namely using evolutionary mechanism. One uses Genetic Algorithm (GA) to search for a design fit to the need. This field of study is called "Evolving Hardware" or "Evolvable Hardware" (EHW).  This field is still in its preliminary stage. There are now two major directions in this field. The first one is evolvable electronics, which can be either digital or analog circus.   For digital circus, one can first design on a computer  using GA then test it with FPGA or build the evolutionary mechanism directly on the FPGA which can then achieve some adaptive advantage. Search "FPGA" with "Evolvable Hardware" on Google if you want to know about it. For analog circus there are fewer research though I think its also  a very promising direction. <a href="http://ti.arc.nasa.gov/projects/esg/research/circuit.htm" target="_blank">Here</a> is a group in NASA who are doing this kind of research.<br><br>Another direction of EHW research is the evolutionary machines (objects). It is generally easier to simulate and test electronics than machines, therefore much fewer research can be found in this direction. The <a href="http://ccsl.mae.cornell.edu/golem" target="_blank">Golem project</a> at Cornell is probably one of the most earliest systematic try. A successful story to design antenna using GA can be found <a href="http://ti.arc.nasa.gov/projects/esg/research/antenna.htm" target="_blank">here</a>. To automatically design a Lego NXT robots lyes in this direction.<br><br><h3>        Outline</h3>I don't think I can make an automatic design of NXT work by myself. It needs lots of work and has a high risk to be not accomplished after years of dedicated work.  However, I still list what I will do if I work on this project here. When I find more people I might start it.<br><br><h4>        Step 1 <span style="font-size: 13px; font-weight: normal;">Map the Lego NXT robot's structure to a DNA like one dimensional representation</span>
+</h4>Probably one can label different types of the basic Lego building blocks with different id and parameters. I should choose a way of mapping so that the code itself could reflect the actual similarity and difference of the bricks. For example in the Lego NXT kit there are bars with different geometry, length and different types of holes. Let's say we have 4 bars. They are:<br><br>No.1 Straight bar with 4 round holes.<br><br>No.2 Straight bar with 3 round hole in a row and the last hole is a "+" hole. (If you have a Lego NXT, you know what I mean.)<br><br>No.3 Straight bar with 5 round holes.<br><br>No.4 L shape bar with one arm like No.2 and the seconde arm is a round hole.<br><br>If I name them as "A", "B", "C", "D", both computer and people know nothing about the relation between them. That's a bad code.  A better way to call them is to use these names:<br><br>BARoooo<br><br>BARooox<br><br>BARooooo<br><br>BARolooox<br><br>BAR is the name of the type. I think to use 3 capital letter for the type of bricks is a good option so you have enough variations to go beyond Lego NXT bricks.<br><br>I can either give each bar a unique code like "A" for a straight bar with length 4 holes one it and "B" a straight  bar with 5 holes on it or better call them "BAR4" and "BAR5"<br><br>(to be continued)
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/201010memo-v1.html" class="u-url">Memo v1</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="posts/201010memo-v1.html" rel="bookmark"><time class="published dt-published" datetime="2010-10-31T22:17:00Z" title="2010-10-31 22:17">2010-10-31 22:17</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/201010memo-v1.html#disqus_thread" data-disqus-identifier="cache/posts/201010memo-v1.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>"Memo" is the program which will save light intensity value and compare the current light intensity with the saved one to make decision what to do next. The program is <a href="http://code.google.com/p/evolvingnxt/downloads/detail?name=Memo%20v1.rbt&amp;can=2&amp;q=">here</a>.<br><br></p>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-JQTXRqCSd6k/ToXkrmOE9lI/AAAAAAAAABI/0Br4f8NSi5I/s1600/memo-v1d.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="110" src="http://2.bp.blogspot.com/-JQTXRqCSd6k/ToXkrmOE9lI/AAAAAAAAABI/0Br4f8NSi5I/s640/memo-v1d.png" width="640"></a></div>
+<br><br>When I program this version I also realized how difficult to program with NXT-G for a more complicated program. Therefore from now on I will use matlab to program NXT.
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/201010random-walker-v3.html" class="u-url">Random Light Finder v3</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="posts/201010random-walker-v3.html" rel="bookmark"><time class="published dt-published" datetime="2010-10-24T12:22:00Z" title="2010-10-24 12:22">2010-10-24 12:22</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/201010random-walker-v3.html#disqus_thread" data-disqus-identifier="cache/posts/201010random-walker-v3.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>In this version I add the function to use the ultrasonic sensor to detect approaching objects and let the NXT to avoid it. It works, though there are still some "bugs" partly because the limitation of the sensor (Can't detect object which doesn't reflect ultrasonic wave well and can't detect if the object is too close).<br><br>Flowing are the photos to show how to build the Random Light Finder v3 and the setup up.<br><br></p>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-agH7PKNMGYw/ToXfmyEXHuI/AAAAAAAAAA4/1hiJYNrGyXk/s1600/p1030367.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="266" src="http://4.bp.blogspot.com/-agH7PKNMGYw/ToXfmyEXHuI/AAAAAAAAAA4/1hiJYNrGyXk/s400/p1030367.jpg" width="400"></a></div>
+<br><div class="separator" style="clear: both; text-align: center;"></div>
+<br><br>Not that the facing direction (look up/down) of the ultrasonic sensor can be controlled by Motor B. I don't alter the direction in this version, but I will probably explore the possibility in the future version.<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-dVQgr-5RLdc/ToXfpgvQ4bI/AAAAAAAAABA/e5P_zk-oqcA/s1600/p1030369.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="266" src="http://2.bp.blogspot.com/-dVQgr-5RLdc/ToXfpgvQ4bI/AAAAAAAAABA/e5P_zk-oqcA/s400/p1030369.jpg" width="400"></a></div>
+<br><br>The program  <a href="http://code.google.com/p/evolvingnxt/downloads/detail?name=Random%20Light%20Finder%20v3.rbt&amp;can=2&amp;q=">can be downloaded here</a>.<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-lKj0FBuqlLE/ToXf7jHfl9I/AAAAAAAAABE/dwlF2URpSqg/s1600/random-light-finder-v3d.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="132" src="http://3.bp.blogspot.com/-lKj0FBuqlLE/ToXf7jHfl9I/AAAAAAAAABE/dwlF2URpSqg/s640/random-light-finder-v3d.png" width="640"></a></div>
+<br>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/201010random-walker-v2.html" class="u-url">Random Light Finder v2</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Cheng Guo
+            </span></p>
+            <p class="dateline"><a href="posts/201010random-walker-v2.html" rel="bookmark"><time class="published dt-published" datetime="2010-10-24T00:20:00Z" title="2010-10-24 00:20">2010-10-24 00:20</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/201010random-walker-v2.html#disqus_thread" data-disqus-identifier="cache/posts/201010random-walker-v2.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>After spend some hours to get more familiar with the functions of NXT-G blocks. I simplified the algorithm. The new version<a href="http://code.google.com/p/evolvingnxt/downloads/detail?name=Random%20Light%20Finder%20v2.rbt&amp;can=2&amp;q="> can be downloaded here</a>.<br><br></p>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-MTnzk0jeKQo/ToXdWnkUsBI/AAAAAAAAAAw/JnD6nioRdTw/s1600/random-light-finder-v2d.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="172" src="http://4.bp.blogspot.com/-MTnzk0jeKQo/ToXdWnkUsBI/AAAAAAAAAAw/JnD6nioRdTw/s640/random-light-finder-v2d.png" width="640"></a></div>
+<br><br><br>I also write a more simplified version in which I only let NXT rotate instead of both rotate and go forward. One can use this program to find the direction of the light (for example the redirect of the window). <a href="http://code.google.com/p/evolvingnxt/downloads/detail?name=Rondom%20Light%20Finder%20%28Window%20Light%29.rbt&amp;can=2&amp;q=">Download the rbt file here</a>.<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-vUf0rzYk_5g/ToXddfB-ilI/AAAAAAAAAA0/3zty-k1jpQ8/s1600/rondom-light-finder-v2-window-lightd.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="274" src="http://3.bp.blogspot.com/-vUf0rzYk_5g/ToXddfB-ilI/AAAAAAAAAA0/3zty-k1jpQ8/s640/rondom-light-finder-v2-window-lightd.png" width="640"></a></div>
+    </div>
+    </article>
+</div>
+
+        <nav class="postindexpager"><ul class="pager">
+<li class="next">
+                <a href="index-1.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav><script>var disqus_shortname="evolvingnxt";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:">Cheng Guo</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
